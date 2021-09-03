@@ -3,7 +3,7 @@ const request = require("request");
 const forecast = (long, lat, callback) => {
   const options = {
     method: "GET",
-    url: `https://www.metaweather.com/api/location/search/?lattlong=${lat},${long}`, //with minus longitude east to west
+    url: `https://www.metaweather.com/api/location/search/?lattlong=${lat},${long}`, //with minus represent longitude east to west
     json: true,
     headers: {
       useQueryString: true,
@@ -17,7 +17,7 @@ const forecast = (long, lat, callback) => {
       callback(undefined, {
         latitude: lat,
         longitude: long,
-        response: response.body[0].title,
+        title: response.body[0].title,
         latt_long: response.body[0].latt_long,
       });
     }
